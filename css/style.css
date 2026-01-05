@@ -1,0 +1,281 @@
+/* =========================
+   VARIABLES GLOBALES
+========================= */
+
+:root {
+    --primary-dark: #050b1f;
+    --secondary-dark: #081a3a;
+    --accent-cyan: #00eaff;
+    --accent-blue: #0b5ed7;
+    --text-light: #e6f1ff;
+    --text-muted: #9fb3c8;
+}
+
+/* =========================
+   CONFIGURACIÓN GENERAL
+========================= */
+
+body {
+    padding-top: 70px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+    overflow-x: hidden;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    background: linear-gradient(90deg, var(--primary-dark), var(--secondary-dark));
+    border-bottom: 1px solid rgba(0, 234, 255, 0.2);
+}
+
+.navbar-brand {
+    color: var(--accent-cyan) !important;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(0, 234, 255, 0.6);
+}
+
+.nav-link {
+    color: var(--text-light) !important;
+    position: relative;
+    margin-left: 10px;
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-cyan);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* =========================
+   HERO PRINCIPAL (INDEX)
+========================= */
+
+.hero-section {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background:
+        radial-gradient(circle at top, rgba(0,234,255,0.15), transparent 60%),
+        linear-gradient(180deg, var(--primary-dark), var(--secondary-dark));
+}
+
+.hero-section h1 {
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-shadow: 0 0 20px rgba(0, 234, 255, 0.4);
+    animation: glowFade 1.2s ease forwards;
+}
+
+.hero-section p {
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 20px auto;
+    animation: slideUp 1.3s ease forwards;
+}
+
+.hero-section .btn-warning {
+    background: linear-gradient(90deg, var(--accent-cyan), #00b3cc);
+    border: none;
+    color: #000;
+    font-weight: 600;
+    box-shadow: 0 0 20px rgba(0, 234, 255, 0.5);
+}
+
+.hero-section .btn-warning:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(0, 234, 255, 0.8);
+}
+
+/* =========================
+   HERO INTERNO (NOSOTROS, ETC)
+========================= */
+
+.hero-interno {
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background:
+        radial-gradient(circle at center, rgba(0,234,255,0.15), transparent 60%),
+        linear-gradient(180deg, var(--primary-dark), var(--secondary-dark));
+}
+
+.hero-interno h1 {
+    color: var(--accent-cyan);
+    text-shadow: 0 0 15px rgba(0,234,255,0.5);
+}
+
+.hero-interno p {
+    color: var(--text-muted);
+}
+
+/* =========================
+   SECCIONES GENERALES (FIX VISIBILIDAD)
+========================= */
+
+section {
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+}
+
+section h2 {
+    color: var(--accent-cyan);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    text-shadow: 0 0 10px rgba(0,234,255,0.4);
+}
+
+section p,
+section li {
+    color: var(--text-light);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* =========================
+   TARJETAS (SERVICIOS)
+========================= */
+
+.card {
+    background: linear-gradient(180deg, var(--secondary-dark), var(--primary-dark));
+    border: 1px solid rgba(0, 234, 255, 0.15);
+    color: var(--text-light);
+    transition: all 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.01);
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 30px rgba(0, 234, 255, 0.35);
+}
+
+.card-title {
+    color: var(--accent-cyan);
+    font-weight: 600;
+}
+
+/* =========================
+   CAJA INFORMACIÓN (NOSOTROS)
+========================= */
+
+.info-box {
+    background: linear-gradient(180deg, var(--secondary-dark), var(--primary-dark));
+    border: 1px solid rgba(0,234,255,0.2);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(0,234,255,0.25);
+}
+
+.info-box h3 {
+    color: var(--accent-cyan);
+}
+
+.info-box ul {
+    padding-left: 20px;
+}
+
+.info-box ul li {
+    list-style: disc;
+    margin-bottom: 6px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: linear-gradient(180deg, var(--primary-dark), #020615);
+    border-top: 1px solid rgba(0,234,255,0.15);
+}
+
+footer a {
+    color: var(--text-muted);
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--accent-cyan);
+}
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-1 {
+    transition-delay: 0.2s;
+}
+
+.delay-2 {
+    transition-delay: 0.4s;
+}
+
+@keyframes glowFade {
+    from {
+        opacity: 0;
+        text-shadow: none;
+    }
+    to {
+        opacity: 1;
+        text-shadow: 0 0 20px rgba(0, 234, 255, 0.6);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+    .hero-section h1,
+    .hero-interno h1 {
+        font-size: 1.9rem;
+    }
+}
+
+.social-icons a {
+    color: #00f2ff;
+    font-size: 1.6rem;
+    margin: 0 10px;
+    transition: 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #ffc107;
+    transform: scale(1.2);
+}

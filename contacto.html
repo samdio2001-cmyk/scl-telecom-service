@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contacto | SCL Telecom Service</title>
+    <meta name="description" content="Contáctenos para soluciones tecnológicas y diseño gráfico profesional.">
+
+    <!-- BOOTSTRAP CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- BOOTSTRAP ICONS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- CSS PERSONALIZADO -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">SCL Telecom Service</a>
+
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+                <li class="nav-item"><a class="nav-link" href="servicios.html">Servicios</a></li>
+                <li class="nav-item"><a class="nav-link" href="diseno-grafico.html">Diseño Gráfico</a></li>
+                <li class="nav-item">
+                    <a class="nav-link active btn btn-outline-info ms-lg-3" href="contacto.html">
+                        Contacto
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO INTERNO -->
+<header class="hero-interno">
+    <div class="container text-center">
+        <h1 class="reveal">Contáctenos</h1>
+        <p class="reveal delay-1">
+            Estamos listos para atender sus requerimientos
+        </p>
+    </div>
+</header>
+
+<!-- SECCIÓN CONTACTO -->
+<section class="py-5">
+    <div class="container">
+        <div class="row g-5">
+
+            <!-- INFORMACIÓN -->
+            <div class="col-md-5 reveal">
+                <h2>Información de Contacto</h2>
+                <p>
+                    Para consultas, cotizaciones o soporte técnico, puede
+                    comunicarse con nosotros a través del siguiente formulario
+                    o nuestras redes sociales.
+                </p>
+
+                <ul class="mt-4">
+                    <li><strong>Empresa:</strong> SCL Telecom Service</li>
+                    <li><strong>Horario:</strong> Lunes a Sabado 8:00AM a 6:00PM</li>
+                    <li><strong>Servicios:</strong> Tecnología y Diseño Gráfico</li>
+                </ul>
+
+                <!-- REDES SOCIALES -->
+                <div class="mt-4">
+                    <p class="fw-bold">Síguenos y contáctanos</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/TU_USUARIO" target="_blank" aria-label="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/TU_USUARIO" target="_blank" aria-label="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/507XXXXXXXX" target="_blank" aria-label="WhatsApp">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                        <a href="mailto:correo@tudominio.com" aria-label="Correo">
+                            <i class="bi bi-envelope-fill"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FORMULARIO -->
+            <div class="col-md-7 reveal delay-1">
+                <div class="info-box">
+
+                    <form class="needs-validation" novalidate>
+
+                        <div class="mb-3">
+                            <label class="form-label">Nombre completo</label>
+                            <input type="text" class="form-control" required>
+                            <div class="invalid-feedback">
+                                Ingrese su nombre.
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Correo electrónico</label>
+                            <input type="email" class="form-control" required>
+                            <div class="invalid-feedback">
+                                Ingrese un correo válido.
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Servicio de interés</label>
+                            <select class="form-select" required>
+                                <option value="">Seleccione una opción</option>
+                                <option>Servicios Tecnológicos</option>
+                                <option>Redes y Fibra Óptica</option>
+                                <option>Diseño Gráfico</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Seleccione un servicio.
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Mensaje</label>
+                            <textarea class="form-control" rows="4" required></textarea>
+                            <div class="invalid-feedback">
+                                Escriba su mensaje.
+                            </div>
+                        </div>
+
+                        <button class="btn btn-warning btn-lg w-100" type="submit">
+                            Enviar Mensaje
+                        </button>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="text-center py-4">
+    <p class="mb-2">© 2026 SCL Telecom Service</p>
+
+    
+
+    <small>
+        <a href="docs/privacidad.html">Privacidad</a> |
+        <a href="docs/terminos.html">Términos</a> |
+        <a href="docs/aviso-legal.html">Aviso Legal</a>
+    </small>
+</footer>
+
+<!-- BOTÓN FLOTANTE WHATSAPP -->
+<a href="https://wa.me/507XXXXXXXX"
+   class="whatsapp-float"
+   target="_blank"
+   aria-label="WhatsApp">
+   <i class="bi bi-whatsapp"></i>
+</a>
+
+<!-- BOOTSTRAP JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- VALIDACIÓN FORMULARIO -->
+<script>
+(() => {
+    'use strict';
+    const forms = document.querySelectorAll('.needs-validation');
+    Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+        }, false);
+    });
+})();
+</script>
+
+<!-- JS PERSONALIZADO -->
+<script src="js/main.js"></script>
+
+</body>
+</html>
