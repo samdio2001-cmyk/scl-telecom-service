@@ -10,7 +10,6 @@ Soy estudiante apasionado por la tecnología,**desarrollo web**, **sistemas**, y
 * **Backend:** Node.js, PHP
 * **Bases de datos:** MySQL, Access
 * **Herramientas:** XAMPP, Visual Studio Code, Git & GitHub
-* **Redes:** Cableado estructurado, redes inalámbricas, fibra óptica
 
  📂 Proyectos Destacados
 
