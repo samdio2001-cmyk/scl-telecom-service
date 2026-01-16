@@ -2,7 +2,7 @@ Alci.Lopez
 
 🚀 Sobre mí
 
-Soy estudiante/desarrollador apasionado por la tecnología, con experiencia en **desarrollo web**, **sistemas**, y **redes**. Me interesa crear soluciones prácticas, funcionales y escalables, especialmente usando tecnologías modernas.
+Soy estudiante apasionado por la tecnología,**desarrollo web**, **sistemas**, y **redes**. Me interesa crear soluciones prácticas, funcionales y escalables, especialmente usando tecnologías modernas.
 
  🛠️ Tecnologías y Herramientas
 
