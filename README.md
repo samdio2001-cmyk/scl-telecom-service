@@ -28,4 +28,4 @@ Soy estudiante apasionado por la tecnología,**desarrollo web**, **sistemas**, y
 Seguir creciendo como profesional en el área de **tecnología**, aportando soluciones eficientes y aprendiendo continuamente.
 
 
-⭐ *Gracias por visitar mi perfil. ¡No dudes en explorar mis repositorios!*
+⭐ *Gracias por visitar mi perfil.
