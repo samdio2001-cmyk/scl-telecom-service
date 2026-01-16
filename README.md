@@ -14,7 +14,7 @@ Soy estudiante apasionado por la tecnología,**desarrollo web**, **sistemas**, y
  📂 Proyectos Destacados
 
 * 📊 **Sistema de facturación** (farmacia)
-* 🎓 **Sistema de registro académico y actas de grado**
+* 🎓 **Sistema de registro académico 
 * 🌐 **Sitios web corporativos y de marketing**
 
 📚 Actualmente aprendiendo
