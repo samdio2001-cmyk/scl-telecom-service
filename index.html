@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCL TELECOM SERVICES | Soluciones en Tecnología y Diseño</title>
+    <meta name="description" content="SCL Telecom Services: telecomunicaciones, soporte técnico, redes de fibra óptica y diseño gráfico profesional en Panamá.">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* ─── Variables del carrusel ─── */
+        :root {
+            --car-cyan:   #17a2b8;
+            --car-yellow: #ffc107;
+        }
+
+        /* ══════════════════════════════
+           CARRUSEL
+        ══════════════════════════════ */
+        .carousel-section { position: relative; overflow: hidden; }
+
+        #sclCarousel .carousel-item {
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide-1 { background: linear-gradient(135deg, #0d1b4b 0%, #1a237e 45%, #0d3b72 100%); }
+        .slide-2 { background: linear-gradient(135deg, #00251a 0%, #00695c 45%, #004d40 100%); }
+        .slide-3 { background: linear-gradient(135deg, #4a0a00 0%, #b71c1c 45%, #880e4f 100%); }
+        .slide-4 { background: linear-gradient(135deg, #1b0040 0%, #4527a0 45%, #0d47a1 100%); }
+
+        .slide-pattern {
+            position: absolute; inset: 0;
+            background-image: radial-gradient(rgba(255,255,255,.07) 1px, transparent 1px);
+            background-size: 28px 28px;
+            pointer-events: none;
+        }
+        .slide-circle { position: absolute; border-radius: 50%; opacity: .06; pointer-events: none; }
+        .circle-1 { width: 600px; height: 600px; background: var(--car-yellow); top: -200px; right: -150px; }
+        .circle-2 { width: 400px; height: 400px; background: var(--car-cyan);   bottom: -150px; left: -100px; }
+
+        .slide-bg-icon {
+            position: absolute; right: 8%; top: 50%;
+            transform: translateY(-50%);
+            font-size: 260px; opacity: .07; color: #fff;
+            pointer-events: none; line-height: 1;
+        }
+
+        .slide-content {
+            position: relative; z-index: 2;
+            padding: 60px 40px; max-width: 680px;
+        }
+        .slide-badge {
+            display: inline-block;
+            background: rgba(255,193,7,.2); border: 1px solid rgba(255,193,7,.5);
+            color: var(--car-yellow);
+            font-family: 'Rajdhani', sans-serif; font-size: .85rem;
+            font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+            padding: 4px 14px; border-radius: 50px; margin-bottom: 18px;
+        }
+        .slide-title {
+            font-family: 'Rajdhani', sans-serif; font-size: 3.2rem;
+            font-weight: 700; color: #fff; line-height: 1.1; margin-bottom: 16px;
+        }
+        .slide-title span { color: var(--car-yellow); }
+        .slide-text {
+            color: rgba(255,255,255,.78); font-size: 1.05rem;
+            line-height: 1.75; margin-bottom: 32px; max-width: 520px;
+        }
+        .slide-features { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
+        .slide-tag {
+            background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
+            color: #fff; font-size: .82rem; padding: 5px 12px; border-radius: 50px;
+            display: flex; align-items: center; gap: 6px;
+        }
+        .slide-tag i { color: var(--car-cyan); }
+        .slide-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+
+        .btn-slide-primary {
+            background: var(--car-yellow); color: #000; font-weight: 700;
+            padding: 12px 28px; border-radius: 8px; border: none;
+            font-size: .95rem; transition: all .3s; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 8px;
+        }
+        .btn-slide-primary:hover {
+            background: #e0a800; transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(255,193,7,.4); color: #000;
+        }
+        .btn-slide-outline {
+            border: 2px solid rgba(255,255,255,.5); color: #fff; font-weight: 600;
+            padding: 12px 28px; border-radius: 8px; background: transparent;
+            font-size: .95rem; transition: all .3s; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 8px;
+        }
+        .btn-slide-outline:hover {
+            border-color: var(--car-cyan); color: var(--car-cyan);
+            background: rgba(23,162,184,.1);
+        }
+
+        .slide-visual {
+            position: absolute; right: 60px; top: 50%;
+            transform: translateY(-50%); z-index: 2;
+            display: flex; flex-direction: column; gap: 14px;
+        }
+        .stat-card {
+            background: rgba(255,255,255,.1); backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,.15); border-radius: 14px;
+            padding: 18px 22px; color: #fff; min-width: 190px; transition: transform .3s;
+        }
+        .stat-card:hover { transform: translateX(-6px); }
+        .stat-card .stat-val {
+            font-family: 'Rajdhani', sans-serif; font-size: 2rem;
+            font-weight: 700; color: var(--car-yellow); line-height: 1;
+        }
+        .stat-card .stat-lbl { font-size: .78rem; color: rgba(255,255,255,.65); margin-top: 4px; }
+        .stat-card i { font-size: 1.4rem; color: var(--car-cyan); margin-bottom: 6px; display: block; }
+
+        .carousel-control-prev, .carousel-control-next {
+            width: 58px; height: 58px;
+            background: rgba(255,255,255,.12); backdrop-filter: blur(6px);
+            border-radius: 50%; top: 50%; transform: translateY(-50%);
+            border: 1px solid rgba(255,255,255,.2); transition: all .3s;
+        }
+        .carousel-control-prev { left: 20px; }
+        .carousel-control-next { right: 20px; }
+        .carousel-control-prev:hover, .carousel-control-next:hover {
+            background: rgba(255,193,7,.3); border-color: var(--car-yellow);
+        }
+        .carousel-control-prev-icon, .carousel-control-next-icon { width: 22px; height: 22px; }
+
+        .carousel-indicators { bottom: 22px; gap: 8px; }
+        .carousel-indicators button {
+            width: 10px; height: 10px; border-radius: 50%;
+            border: 2px solid rgba(255,255,255,.5); background: transparent;
+            opacity: 1; transition: all .3s;
+        }
+        .carousel-indicators button.active {
+            background: var(--car-yellow); border-color: var(--car-yellow);
+            width: 32px; border-radius: 5px;
+        }
+
+        .carousel-progress {
+            position: absolute; bottom: 0; left: 0;
+            height: 3px; background: var(--car-yellow); z-index: 10;
+            animation: slideProgress 5s linear infinite;
+        }
+        @keyframes slideProgress { 0% { width: 0%; } 100% { width: 100%; } }
+
+        .slide-thumbs {
+            display: flex; justify-content: center; gap: 10px;
+            padding: 18px 20px;
+            background: rgba(13,27,75,.8);
+            border-top: 1px solid rgba(255,255,255,.08);
+        }
+        .thumb-item {
+            flex: 1; max-width: 180px;
+            background: rgba(255,255,255,.06); border: 2px solid rgba(255,255,255,.1);
+            border-radius: 10px; padding: 12px 14px; cursor: pointer;
+            transition: all .3s; text-align: center; color: rgba(255,255,255,.6);
+        }
+        .thumb-item:hover, .thumb-item.active-thumb {
+            border-color: var(--car-yellow); background: rgba(255,193,7,.08); color: #fff;
+        }
+        .thumb-item i { font-size: 1.5rem; display: block; margin-bottom: 5px; color: var(--car-cyan); }
+        .thumb-item span { font-size: .75rem; font-weight: 500; line-height: 1.3; display: block; }
+
+        @media (max-width: 992px) {
+            .slide-visual { display: none; }
+            .slide-bg-icon { font-size: 160px; opacity: .05; }
+            .slide-content { max-width: 100%; text-align: center; padding: 50px 30px; }
+            .slide-ctas { justify-content: center; }
+            .slide-features { justify-content: center; }
+        }
+        @media (max-width: 576px) {
+            .slide-title { font-size: 2rem; }
+            #sclCarousel .carousel-item { min-height: 480px; }
+            .slide-thumbs { display: none; }
+        }
+
+        /* ══════════════════════════════
+           FRANJA DE NÚMEROS
+        ══════════════════════════════ */
+        .stats-strip {
+            background: linear-gradient(90deg, #0d1b4b, #1f3a93, #0d47a1);
+            padding: 2.5rem 0;
+            border-top: 3px solid #ffc107;
+            border-bottom: 3px solid #17a2b8;
+        }
+        .stat-item { text-align: center; padding: 0.5rem 1rem; }
+        .stat-item .num {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 2.8rem; font-weight: 700; color: #ffc107;
+            line-height: 1; display: block;
+        }
+        .stat-item .lbl { font-size: .85rem; color: rgba(255,255,255,.7); margin-top: 4px; display: block; }
+        .stat-item .ico { font-size: 1.6rem; color: #17a2b8; display: block; margin-bottom: 6px; }
+        .stat-divider {
+            width: 1px; background: rgba(255,255,255,.15);
+            align-self: stretch; margin: 0.5rem 0;
+        }
+
+        /* ══════════════════════════════
+           SERVICIOS COMPLEMENTARIOS
+        ══════════════════════════════ */
+        .extra-services { background: #f8f9fa; padding: 4.5rem 0; }
+        .extra-services .section-label {
+            display: inline-block;
+            background: rgba(31,58,147,.08); border: 1px solid rgba(31,58,147,.2);
+            color: #1f3a93; font-size: .72rem; font-weight: 700;
+            letter-spacing: 3px; text-transform: uppercase;
+            padding: 4px 14px; border-radius: 20px; margin-bottom: .6rem;
+        }
+        .extra-services h2 {
+            font-family: 'Rajdhani', sans-serif; color: #0d1b4b;
+            font-size: 2.2rem; font-weight: 700; margin-bottom: .3rem;
+        }
+        .extra-services .subtitle { color: #666; font-size: 1rem; margin-bottom: 2.5rem; }
+
+        .service-card-plus {
+            background: #fff; border: 1px solid #e8ecf4;
+            border-radius: 16px; padding: 2rem 1.5rem;
+            height: 100%; transition: all .3s ease;
+            position: relative; overflow: hidden;
+        }
+        .service-card-plus::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+            transform: scaleX(0); transition: transform .3s ease;
+        }
+        .service-card-plus:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(13,27,75,.12); border-color: transparent; }
+        .service-card-plus:hover::before { transform: scaleX(1); }
+
+        .scp-blue::before   { background: linear-gradient(90deg, #1f3a93, #17a2b8); }
+        .scp-green::before  { background: linear-gradient(90deg, #00695c, #00c853); }
+        .scp-purple::before { background: linear-gradient(90deg, #4527a0, #ab47bc); }
+
+        .scp-icon {
+            width: 58px; height: 58px; border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; margin-bottom: 1.2rem;
+        }
+        .scp-blue .scp-icon   { background: rgba(23,162,184,.1); color: #17a2b8; }
+        .scp-green .scp-icon  { background: rgba(0,200,83,.1);   color: #00c853; }
+        .scp-purple .scp-icon { background: rgba(171,71,188,.1);  color: #ab47bc; }
+
+        .scp-title { font-family: 'Rajdhani', sans-serif; font-size: 1.2rem; font-weight: 700; color: #0d1b4b; margin-bottom: .5rem; }
+        .scp-text  { color: #666; font-size: .9rem; line-height: 1.65; margin-bottom: 1.2rem; }
+
+        .scp-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.4rem; }
+        .scp-tag {
+            font-size: .72rem; font-weight: 600; padding: 3px 10px;
+            border-radius: 20px; border: 1px solid;
+        }
+        .scp-blue .scp-tag   { color: #17a2b8; border-color: rgba(23,162,184,.3); background: rgba(23,162,184,.06); }
+        .scp-green .scp-tag  { color: #00897b; border-color: rgba(0,137,123,.3);   background: rgba(0,137,123,.06); }
+        .scp-purple .scp-tag { color: #8e24aa; border-color: rgba(142,36,170,.3);   background: rgba(142,36,170,.06); }
+
+        .scp-link {
+            font-size: .88rem; font-weight: 600; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 6px; transition: gap .2s;
+        }
+        .scp-blue .scp-link   { color: #17a2b8; }
+        .scp-green .scp-link  { color: #00897b; }
+        .scp-purple .scp-link { color: #8e24aa; }
+        .scp-link:hover { gap: 10px; }
+
+        /* ══════════════════════════════
+           TESTIMONIOS
+        ══════════════════════════════ */
+        .testimonials { background: #fff; padding: 4.5rem 0; }
+        .testimonials h2 { font-family: 'Rajdhani', sans-serif; color: #0d1b4b; font-size: 2.2rem; font-weight: 700; }
+        .testimonials .subtitle { color: #666; font-size: 1rem; margin-bottom: 2.5rem; }
+
+        .testi-card {
+            background: #fff; border: 1px solid #e8ecf4; border-radius: 16px;
+            padding: 1.8rem; height: 100%; transition: all .3s;
+            position: relative;
+        }
+        .testi-card:hover { box-shadow: 0 12px 30px rgba(13,27,75,.1); transform: translateY(-4px); border-color: rgba(23,162,184,.3); }
+
+        .testi-quote {
+            font-size: 3rem; color: #17a2b8; line-height: 1;
+            font-family: Georgia, serif; margin-bottom: .5rem; opacity: .4;
+        }
+        .testi-text { color: #555; font-size: .95rem; line-height: 1.75; margin-bottom: 1.2rem; font-style: italic; }
+
+        .testi-footer { display: flex; align-items: center; gap: 12px; }
+        .testi-avatar {
+            width: 44px; height: 44px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Rajdhani', sans-serif; font-size: 1.1rem; font-weight: 700; color: #fff;
+            flex-shrink: 0;
+        }
+        .av-blue   { background: linear-gradient(135deg, #1f3a93, #17a2b8); }
+        .av-green  { background: linear-gradient(135deg, #00695c, #00c853); }
+        .av-purple { background: linear-gradient(135deg, #4527a0, #ab47bc); }
+
+        .testi-name { font-weight: 700; font-size: .9rem; color: #0d1b4b; }
+        .testi-role { font-size: .78rem; color: #999; }
+        .testi-stars { margin-bottom: .6rem; }
+        .testi-stars i { color: #ffc107; font-size: .9rem; }
+
+        /* ══════════════════════════════
+           CTA FINAL
+        ══════════════════════════════ */
+        .cta-section {
+            background: linear-gradient(135deg, #0d1b4b 0%, #1f3a93 60%, #17a2b8 100%);
+            padding: 5rem 0; position: relative; overflow: hidden;
+        }
+        .cta-section::before {
+            content: ''; position: absolute; inset: 0;
+            background-image: radial-gradient(rgba(255,255,255,.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+        .cta-section .container { position: relative; z-index: 2; }
+        .cta-section h2 {
+            font-family: 'Rajdhani', sans-serif; font-size: 2.6rem; font-weight: 700;
+            color: #fff; margin-bottom: .5rem;
+        }
+        .cta-section p { color: rgba(255,255,255,.75); font-size: 1.05rem; max-width: 560px; margin: 0 auto 2rem; }
+        .cta-chips { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 2rem; }
+        .cta-chip {
+            background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
+            color: #fff; font-size: .82rem; padding: 6px 14px; border-radius: 50px;
+            display: inline-flex; align-items: center; gap: 6px;
+        }
+        .cta-chip i { color: #ffc107; }
+        .cta-btns { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; }
+        .btn-cta-primary {
+            background: #ffc107; color: #000; font-weight: 700;
+            padding: 14px 34px; border-radius: 50px; border: none; font-size: 1rem;
+            transition: all .3s; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 10px;
+            box-shadow: 0 8px 24px rgba(255,193,7,.35);
+        }
+        .btn-cta-primary:hover { background: #e0a800; transform: translateY(-3px); box-shadow: 0 14px 32px rgba(255,193,7,.5); color: #000; }
+        .btn-cta-outline {
+            border: 2px solid rgba(255,255,255,.5); color: #fff; font-weight: 600;
+            padding: 14px 34px; border-radius: 50px; background: transparent;
+            font-size: 1rem; transition: all .3s; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 10px;
+        }
+        .btn-cta-outline:hover { border-color: #ffc107; color: #ffc107; background: rgba(255,193,7,.08); }
+
+        /* ══════════════════════════════
+           FOOTER
+        ══════════════════════════════ */
+        footer.site-footer {
+            background: linear-gradient(135deg, #060d2a, #0d1b4b);
+            border-top: 3px solid #1f3a93; color: rgba(255,255,255,.8); padding: 3.5rem 0 1.5rem;
+        }
+        footer.site-footer h5 { font-family: 'Rajdhani', sans-serif; font-weight: 700; color: #fff; font-size: 1rem; letter-spacing: 1px; margin-bottom: 1rem; }
+        footer.site-footer p, footer.site-footer a { font-size: .88rem; color: rgba(255,255,255,.6); text-decoration: none; transition: color .2s; }
+        footer.site-footer a:hover { color: #ffc107; }
+        footer.site-footer .contact-item { display: flex; align-items: center; gap: 10px; margin-bottom: .6rem; color: rgba(255,255,255,.6); font-size: .88rem; }
+        footer.site-footer .contact-item i { color: #17a2b8; font-size: 1rem; flex-shrink: 0; }
+        footer.site-footer .social-link {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 36px; height: 36px; border-radius: 50%;
+            border: 1px solid rgba(255,255,255,.15); color: rgba(255,255,255,.6);
+            text-decoration: none; transition: all .3s; font-size: 1rem;
+        }
+        footer.site-footer .social-link:hover { border-color: #ffc107; color: #ffc107; background: rgba(255,193,7,.1); transform: translateY(-3px); }
+        footer.site-footer hr { border-color: rgba(255,255,255,.08); }
+        footer.site-footer .bottom-text { font-size: .8rem; color: rgba(255,255,255,.35); }
+    </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════
+     NAVBAR
+══════════════════════════════ -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
+            <img src="SCL.webp" alt="SCL Logo" class="navbar-logo">
+            <span class="ms-3">SCL TELECOM SERVICES</span>
+        </a>
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+                <li class="nav-item"><a class="nav-link" href="servicios.html">Servicios</a></li>
+                <li class="nav-item"><a class="nav-link" href="diseno-grafico.html">Diseño Gráfico</a></li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-outline-info ms-lg-3 px-3" href="contacto.html">Contacto</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- ══════════════════════════════
+     CARRUSEL PRINCIPAL
+══════════════════════════════ -->
+<div class="carousel-section">
+    <div id="sclCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#sclCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#sclCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#sclCarousel" data-bs-slide-to="2"></button>
+            <button type="button" data-bs-target="#sclCarousel" data-bs-slide-to="3"></button>
+            <button type="button" data-bs-target="#sclCarousel" data-bs-slide-to="4"></button>
+        </div>
+
+        <div class="carousel-inner">
+
+            <!-- SLIDE 1 — Presentación -->
+            <div class="carousel-item active slide-1">
+                <div class="slide-pattern"></div>
+                <div class="slide-circle circle-1"></div>
+                <div class="slide-circle circle-2"></div>
+                <div class="slide-bg-icon"><i class="bi bi-router"></i></div>
+                <div class="container">
+                    <div class="slide-content">
+                        <div class="slide-badge">🚀 Bienvenido</div>
+                        <h1 class="slide-title">Tecnología que <span>Transforma</span><br>tu Negocio</h1>
+                        <p class="slide-text">Soluciones integrales en telecomunicaciones, soporte técnico y diseño gráfico. Tu aliado estratégico para conectar, crecer y destacar.</p>
+                        <div class="slide-features">
+                            <span class="slide-tag"><i class="bi bi-shield-check"></i> Expertos Certificados</span>
+                            <span class="slide-tag"><i class="bi bi-lightning-fill"></i> Respuesta 24/7</span>
+                            <span class="slide-tag"><i class="bi bi-star-fill"></i> Calidad Garantizada</span>
+                        </div>
+                        <div class="slide-ctas">
+                            <a href="contacto.html" class="btn-slide-primary"><i class="bi bi-telephone-fill"></i> Solicitar Cotización</a>
+                            <a href="servicios.html" class="btn-slide-outline">Ver Servicios <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-visual">
+                    <div class="stat-card"><i class="bi bi-people-fill"></i><div class="stat-val">+500</div><div class="stat-lbl">Clientes Satisfechos</div></div>
+                    <div class="stat-card"><i class="bi bi-award"></i><div class="stat-val">10+</div><div class="stat-lbl">Años de Experiencia</div></div>
+                    <div class="stat-card"><i class="bi bi-patch-check"></i><div class="stat-val">100%</div><div class="stat-lbl">Proyectos Completados</div></div>
+                </div>
+                <div class="carousel-progress"></div>
+            </div>
+
+            <!-- SLIDE 2 — Soporte Tecnológico -->
+            <div class="carousel-item" style="background:linear-gradient(135deg,#0b1c3a 0%,#1f3a93 50%,#0d47a1 100%)">
+                <div class="slide-pattern"></div>
+                <div class="slide-circle circle-1" style="background:var(--car-cyan)"></div>
+                <div class="slide-circle circle-2" style="background:var(--car-yellow)"></div>
+                <div class="slide-bg-icon"><i class="bi bi-laptop"></i></div>
+                <div class="container">
+                    <div class="slide-content">
+                        <div class="slide-badge">💻 Soporte Tecnológico</div>
+                        <h2 class="slide-title">Reparación &<br><span>Mantenimiento</span><br>de Equipos</h2>
+                        <p class="slide-text">Venta, reparación y mantenimiento de computadoras, impresoras y equipos periféricos. Servicio rápido y garantizado para que tu empresa no se detenga.</p>
+                        <div class="slide-features">
+                            <span class="slide-tag"><i class="bi bi-cpu"></i> PCs & Laptops</span>
+                            <span class="slide-tag"><i class="bi bi-printer"></i> Impresoras</span>
+                            <span class="slide-tag"><i class="bi bi-tools"></i> Periféricos</span>
+                            <span class="slide-tag"><i class="bi bi-hdd-network"></i> Servidores</span>
+                        </div>
+                        <div class="slide-ctas">
+                            <a href="servicios.html" class="btn-slide-primary">Ver Servicio</a>
+                            <a href="contacto.html" class="btn-slide-outline">Contáctanos</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-visual">
+                    <div class="stat-card"><i class="bi bi-clock-history"></i><div class="stat-val">24/7</div><div class="stat-lbl">Soporte Disponible</div></div>
+                    <div class="stat-card"><i class="bi bi-wrench-adjustable"></i><div class="stat-val">72h</div><div class="stat-lbl">Tiempo de Entrega</div></div>
+                </div>
+            </div>
+
+            <!-- SLIDE 3 — Redes & Fibra Óptica -->
+            <div class="carousel-item slide-2">
+                <div class="slide-pattern"></div>
+                <div class="slide-circle circle-1" style="background:#00e676"></div>
+                <div class="slide-circle circle-2" style="background:var(--car-cyan)"></div>
+                <div class="slide-bg-icon"><i class="bi bi-diagram-3"></i></div>
+                <div class="container">
+                    <div class="slide-content">
+                        <div class="slide-badge">🌐 Redes & Conectividad</div>
+                        <h2 class="slide-title">Fibra Óptica de<br><span style="color:#69f0ae">Alta Velocidad</span><br>para tu Empresa</h2>
+                        <p class="slide-text">Instalación de redes de alta velocidad, cableado estructurado, fibra óptica y conectividad empresarial. Infraestructura robusta y escalable.</p>
+                        <div class="slide-features">
+                            <span class="slide-tag"><i class="bi bi-wifi"></i> Redes WiFi</span>
+                            <span class="slide-tag"><i class="bi bi-ethernet"></i> Cableado Estructurado</span>
+                            <span class="slide-tag"><i class="bi bi-broadcast"></i> Fibra Óptica</span>
+                        </div>
+                        <div class="slide-ctas">
+                            <a href="servicios.html" class="btn-slide-primary">Ver Servicio</a>
+                            <a href="contacto.html" class="btn-slide-outline">Cotizar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-visual">
+                    <div class="stat-card" style="border-color:rgba(0,230,118,.2)"><i class="bi bi-speedometer2" style="color:#69f0ae"></i><div class="stat-val" style="color:#69f0ae">10Gb</div><div class="stat-lbl">Velocidad Máx. Fibra</div></div>
+                    <div class="stat-card" style="border-color:rgba(0,230,118,.2)"><i class="bi bi-buildings" style="color:#69f0ae"></i><div class="stat-val" style="color:#69f0ae">+120</div><div class="stat-lbl">Instalaciones Realizadas</div></div>
+                </div>
+            </div>
+
+            <!-- SLIDE 4 — Diseño Gráfico -->
+            <div class="carousel-item slide-3">
+                <div class="slide-pattern"></div>
+                <div class="slide-circle circle-1" style="background:#ff6e6e"></div>
+                <div class="slide-circle circle-2" style="background:var(--car-yellow)"></div>
+                <div class="slide-bg-icon"><i class="bi bi-palette"></i></div>
+                <div class="container">
+                    <div class="slide-content">
+                        <div class="slide-badge">🎨 Diseño Gráfico</div>
+                        <h2 class="slide-title">Tu Marca,<br><span style="color:#ff6e6e">Imagen</span><br>Profesional</h2>
+                        <p class="slide-text">Vallas publicitarias, banners, logotipos, material promocional y branding profesional. Hacemos que tu marca hable por sí sola.</p>
+                        <div class="slide-features">
+                            <span class="slide-tag"><i class="bi bi-signpost"></i> Vallas Publicitarias</span>
+                            <span class="slide-tag"><i class="bi bi-badge-ad"></i> Banners</span>
+                            <span class="slide-tag"><i class="bi bi-vector-pen"></i> Logotipos</span>
+                            <span class="slide-tag"><i class="bi bi-layers"></i> Branding</span>
+                        </div>
+                        <div class="slide-ctas">
+                            <a href="diseno-grafico.html" class="btn-slide-primary">Ver Portafolio</a>
+                            <a href="contacto.html" class="btn-slide-outline">Cotizar Diseño</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-visual">
+                    <div class="stat-card" style="border-color:rgba(255,110,110,.2)"><i class="bi bi-palette2" style="color:#ff6e6e"></i><div class="stat-val" style="color:#ff6e6e">+200</div><div class="stat-lbl">Diseños Entregados</div></div>
+                    <div class="stat-card" style="border-color:rgba(255,110,110,.2)"><i class="bi bi-star-fill" style="color:#ff6e6e"></i><div class="stat-val" style="color:#ff6e6e">5★</div><div class="stat-lbl">Calificación Promedio</div></div>
+                </div>
+            </div>
+
+            <!-- SLIDE 5 — Oferta Especial -->
+            <div class="carousel-item slide-4">
+                <div class="slide-pattern"></div>
+                <div class="slide-circle circle-1" style="background:var(--car-yellow);opacity:.1"></div>
+                <div class="slide-circle circle-2" style="background:var(--car-cyan)"></div>
+                <div class="slide-bg-icon"><i class="bi bi-headset"></i></div>
+                <div class="container">
+                    <div class="slide-content">
+                        <div class="slide-badge">🎁 Oferta Especial</div>
+                        <h2 class="slide-title">Consultoría<br><span>Gratuita</span><br>para tu Empresa</h2>
+                        <p class="slide-text">¿No sabes por dónde empezar? Solicita hoy una consultoría sin costo. Nuestros expertos analizarán tus necesidades y te ofrecerán la mejor solución.</p>
+                        <div class="slide-features">
+                            <span class="slide-tag"><i class="bi bi-check-circle"></i> Sin Compromisos</span>
+                            <span class="slide-tag"><i class="bi bi-calendar-check"></i> Agenda en Minutos</span>
+                            <span class="slide-tag"><i class="bi bi-telephone-fill"></i> Atención Inmediata</span>
+                        </div>
+                        <div class="slide-ctas">
+                            <a href="contacto.html" class="btn-slide-primary"><i class="bi bi-chat-dots-fill"></i> Solicitar Ahora</a>
+                            <a href="https://wa.me/5077589716" target="_blank" class="btn-slide-outline"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-visual">
+                    <div class="stat-card"><i class="bi bi-telephone-inbound"></i><div class="stat-val">+507</div><div class="stat-lbl">Llámanos Ahora</div></div>
+                    <div class="stat-card"><i class="bi bi-whatsapp" style="color:#25d366"></i><div class="stat-val">7589716</div><div class="stat-lbl">WhatsApp Directo</div></div>
+                </div>
+            </div>
+
+        </div><!-- /carousel-inner -->
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#sclCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+        <button class="carousel-control-next" type="button" data-bs-target="#sclCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+    </div>
+
+    <!-- Miniaturas -->
+    <div class="slide-thumbs" id="slideThumbs">
+        <div class="thumb-item active-thumb" onclick="goSlide(0)"><i class="bi bi-house-fill"></i><span>Inicio</span></div>
+        <div class="thumb-item" onclick="goSlide(1)"><i class="bi bi-laptop"></i><span>Soporte Técnico</span></div>
+        <div class="thumb-item" onclick="goSlide(2)"><i class="bi bi-diagram-3"></i><span>Redes & Fibra</span></div>
+        <div class="thumb-item" onclick="goSlide(3)"><i class="bi bi-palette"></i><span>Diseño Gráfico</span></div>
+        <div class="thumb-item" onclick="goSlide(4)"><i class="bi bi-gift"></i><span>Oferta Especial</span></div>
+    </div>
+</div>
+
+<!-- ══════════════════════════════
+     FRANJA DE NÚMEROS CLAVE
+══════════════════════════════ -->
+<div class="stats-strip">
+    <div class="container">
+        <div class="row align-items-center g-0">
+            <div class="col-6 col-md-3">
+                <div class="stat-item">
+                    <i class="bi bi-people-fill ico"></i>
+                    <span class="num">+500</span>
+                    <span class="lbl">Clientes Satisfechos</span>
+                </div>
+            </div>
+            <div class="d-none d-md-block col-md-auto"><div class="stat-divider" style="height:60px;width:1px;background:rgba(255,255,255,.15);margin:auto;"></div></div>
+            <div class="col-6 col-md-3">
+                <div class="stat-item">
+                    <i class="bi bi-calendar2-check ico"></i>
+                    <span class="num">10+</span>
+                    <span class="lbl">Años de Experiencia</span>
+                </div>
+            </div>
+            <div class="d-none d-md-block col-md-auto"><div class="stat-divider" style="height:60px;width:1px;background:rgba(255,255,255,.15);margin:auto;"></div></div>
+            <div class="col-6 col-md-3">
+                <div class="stat-item">
+                    <i class="bi bi-hdd-network ico"></i>
+                    <span class="num">+120</span>
+                    <span class="lbl">Instalaciones de Red</span>
+                </div>
+            </div>
+            <div class="d-none d-md-block col-md-auto"><div class="stat-divider" style="height:60px;width:1px;background:rgba(255,255,255,.15);margin:auto;"></div></div>
+            <div class="col-6 col-md-3">
+                <div class="stat-item">
+                    <i class="bi bi-palette2 ico"></i>
+                    <span class="num">+200</span>
+                    <span class="lbl">Diseños Entregados</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════════════════════
+     SERVICIOS COMPLEMENTARIOS
+     (CCTV, Nube, Impresoras — no están en el carrusel)
+══════════════════════════════ -->
+<section class="extra-services">
+    <div class="container">
+        <div class="text-center mb-2">
+            <span class="section-label">Más Soluciones</span>
+        </div>
+        <h2 class="text-center reveal">También te Ofrecemos</h2>
+        <p class="subtitle text-center reveal delay-1">Servicios adicionales para completar la protección y operación de tu negocio.</p>
+
+        <div class="row g-4">
+
+            <!-- Seguridad CCTV -->
+            <div class="col-md-4 reveal">
+                <div class="service-card-plus scp-blue h-100">
+                    <div class="scp-icon"><i class="bi bi-camera-video-fill"></i></div>
+                    <div class="scp-title">Cámaras de Seguridad CCTV</div>
+                    <p class="scp-text">Instalación de sistemas de videovigilancia analógicos e IP con acceso remoto desde tu celular. Protege tu negocio y hogar las 24 horas.</p>
+                    <div class="scp-tags">
+                        <span class="scp-tag">CCTV Analógico</span>
+                        <span class="scp-tag">Cámaras IP</span>
+                        <span class="scp-tag">Acceso Remoto</span>
+                        <span class="scp-tag">Grabación en Nube</span>
+                    </div>
+                    <a href="servicios.html" class="scp-link">Más información <i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Nube & Backup -->
+            <div class="col-md-4 reveal delay-1">
+                <div class="service-card-plus scp-green h-100">
+                    <div class="scp-icon"><i class="bi bi-cloud-arrow-up-fill"></i></div>
+                    <div class="scp-title">Nube & Backup Empresarial</div>
+                    <p class="scp-text">Configura Google Workspace, Microsoft 365 y soluciones de respaldo automático. Tu información siempre disponible y protegida contra pérdidas.</p>
+                    <div class="scp-tags">
+                        <span class="scp-tag">Google Workspace</span>
+                        <span class="scp-tag">Microsoft 365</span>
+                        <span class="scp-tag">Backup Automático</span>
+                        <span class="scp-tag">Recuperación de Datos</span>
+                    </div>
+                    <a href="servicios.html" class="scp-link">Más información <i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Mantenimiento Impresoras -->
+            <div class="col-md-4 reveal delay-2">
+                <div class="service-card-plus scp-purple h-100">
+                    <div class="scp-icon"><i class="bi bi-printer-fill"></i></div>
+                    <div class="scp-title">Mantenimiento de Impresoras</div>
+                    <p class="scp-text">Limpieza profunda, cambio de cartuchos y tóner, reparación de rodillos y fusor. Compatible con HP, Epson, Canon, Xerox y más marcas.</p>
+                    <div class="scp-tags">
+                        <span class="scp-tag">Impresoras Láser</span>
+                        <span class="scp-tag">Inyección de Tinta</span>
+                        <span class="scp-tag">Multifuncionales</span>
+                        <span class="scp-tag">Garantía incluida</span>
+                    </div>
+                    <a href="servicios.html" class="scp-link">Más información <i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════
+     TESTIMONIOS
+══════════════════════════════ -->
+<section class="testimonials">
+    <div class="container">
+        <div class="text-center mb-2">
+            <span class="section-label" style="background:rgba(31,58,147,.08);border:1px solid rgba(31,58,147,.2);color:#1f3a93;font-size:.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;padding:4px 14px;border-radius:20px;display:inline-block;">Clientes</span>
+        </div>
+        <h2 class="text-center reveal">Lo Que Dicen de Nosotros</h2>
+        <p class="subtitle text-center reveal delay-1">La confianza de nuestros clientes es nuestro mayor logro.</p>
+
+        <div class="row g-4">
+
+            <div class="col-md-4 reveal">
+                <div class="testi-card">
+                    <div class="testi-stars">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                    <div class="testi-quote">"</div>
+                    <p class="testi-text">Excelente servicio, muy profesionales. Instalaron nuestra red de fibra óptica sin inconvenientes y en tiempo récord. Totalmente recomendados.</p>
+                    <div class="testi-footer">
+                        <div class="testi-avatar av-blue">EX</div>
+                        <div>
+                            <div class="testi-name">Empresa XYZ</div>
+                            <div class="testi-role">Cliente — Red Empresarial</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 reveal delay-1">
+                <div class="testi-card">
+                    <div class="testi-stars">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                    <div class="testi-quote">"</div>
+                    <p class="testi-text">Rápidos, confiables y con precios justos. SCL Telecom resolvió nuestro problema de conectividad en horas. Recomendamos sus servicios sin dudar.</p>
+                    <div class="testi-footer">
+                        <div class="testi-avatar av-green">PL</div>
+                        <div>
+                            <div class="testi-name">Pyme Local S.A.</div>
+                            <div class="testi-role">Cliente — Soporte Técnico</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 reveal delay-2">
+                <div class="testi-card">
+                    <div class="testi-stars">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                    <div class="testi-quote">"</div>
+                    <p class="testi-text">El diseño gráfico que nos hicieron superó todas nuestras expectativas. Nuestras vallas publicitarias quedaron increíbles y el impacto fue inmediato.</p>
+                    <div class="testi-footer">
+                        <div class="testi-avatar av-purple">NL</div>
+                        <div>
+                            <div class="testi-name">Negocio Local</div>
+                            <div class="testi-role">Cliente — Diseño Gráfico</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════
+     CTA FINAL
+══════════════════════════════ -->
+<section class="cta-section text-center">
+    <div class="container">
+        <h2 class="reveal">¿Listo para dar el siguiente paso?</h2>
+        <p class="reveal delay-1">Agenda hoy tu consultoría gratuita. Sin compromisos, sin costos ocultos — solo soluciones reales para tu empresa.</p>
+        <div class="cta-chips reveal delay-1">
+            <span class="cta-chip"><i class="bi bi-check-circle-fill"></i> Respuesta en menos de 1 hora</span>
+            <span class="cta-chip"><i class="bi bi-check-circle-fill"></i> Presupuesto sin costo</span>
+            <span class="cta-chip"><i class="bi bi-check-circle-fill"></i> Atención personalizada</span>
+        </div>
+        <div class="cta-btns reveal delay-2">
+            <a href="contacto.html" class="btn-cta-primary"><i class="bi bi-envelope-fill"></i> Escríbenos Ahora</a>
+            <a href="https://wa.me/5077589716?text=Hola!%20Me%20gustaría%20una%20cotización." target="_blank" class="btn-cta-outline"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════
+     FOOTER
+══════════════════════════════ -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="row mb-4 g-4">
+            <div class="col-md-4">
+                <h5>SCL Telecom Service</h5>
+                <p>Soluciones integrales en telecomunicaciones, soporte técnico y diseño gráfico para empresas en Panamá.</p>
+                <div class="d-flex gap-2 mt-3">
+                    <a href="https://www.instagram.com/alci_lopez_?igsh=aGkzNTE1emU4dzk=" target="_blank" class="social-link" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="https://wa.me/5077589716" target="_blank" class="social-link" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                    <a href="mailto:info@scltelecomunicaciones.com" class="social-link" aria-label="Email"><i class="bi bi-envelope"></i></a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h5>Navegación</h5>
+                <div class="d-flex flex-column gap-1">
+                    <a href="index.html">Inicio</a>
+                    <a href="nosotros.html">Nosotros</a>
+                    <a href="servicios.html">Servicios</a>
+                    <a href="diseno-grafico.html">Diseño Gráfico</a>
+                    <a href="contacto.html">Contacto</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h5>Contacto Directo</h5>
+                <div class="contact-item"><i class="bi bi-telephone-fill"></i><a href="tel:+5077589716">+507 7589716</a></div>
+                <div class="contact-item"><i class="bi bi-envelope-fill"></i><a href="mailto:info@scltelecomunicaciones.com">info@scltelecomunicaciones.com</a></div>
+                <div class="contact-item"><i class="bi bi-geo-alt-fill"></i><span>Panamá, República de Panamá</span></div>
+            </div>
+        </div>
+        <hr>
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center pt-2 gap-2">
+            <p class="bottom-text mb-0">© 2026 SCL Telecom Service — Todos los derechos reservados</p>
+            <p class="bottom-text mb-0">
+                <a href="privacidad.html" class="text-decoration-none" style="color:rgba(255,255,255,.35)">Privacidad</a> &nbsp;·&nbsp;
+                <a href="terminos.html"   class="text-decoration-none" style="color:rgba(255,255,255,.35)">Términos</a> &nbsp;·&nbsp;
+                <a href="aviso-legal.html" class="text-decoration-none" style="color:rgba(255,255,255,.35)">Aviso Legal</a>
+            </p>
+        </div>
+    </div>
+</footer>
+
+<!-- ══════════════════════════════
+     CHAT FLOTANTE WHATSAPP
+══════════════════════════════ -->
+<div class="whatsapp-container">
+    <div class="whatsapp-bubble"><i class="bi bi-whatsapp"></i></div>
+    <div class="whatsapp-tooltip">¡Hablemos por WhatsApp!</div>
+    <div class="whatsapp-popup">
+        <button class="whatsapp-close"><i class="bi bi-x-lg"></i></button>
+        <div class="whatsapp-header">
+            <h4>SCL Telecom Service</h4>
+            <p>Usualmente responde en minutos</p>
+        </div>
+        <div class="whatsapp-body">
+            <div class="whatsapp-message">¡Hola! 👋 Bienvenido a SCL Telecom Service.<br><br>¿Cómo podemos ayudarte hoy?</div>
+            <div class="whatsapp-buttons">
+                <button class="whatsapp-btn whatsapp-btn-primary"><i class="bi bi-chat-dots"></i> Enviar Mensaje</button>
+                <a href="tel:+5077589716" class="whatsapp-btn whatsapp-btn-secondary"><i class="bi bi-telephone"></i> Llamar Ahora</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/whatsapp-chat.js"></script>
+
+<script>
+    /* ── Carrusel: sincronizar miniaturas ── */
+    (function () {
+        const car    = document.getElementById('sclCarousel');
+        const thumbs = document.querySelectorAll('.thumb-item');
+        car.addEventListener('slid.bs.carousel', function (e) {
+            thumbs.forEach(t => t.classList.remove('active-thumb'));
+            if (thumbs[e.to]) thumbs[e.to].classList.add('active-thumb');
+        });
+    })();
+    function goSlide(idx) {
+        bootstrap.Carousel.getInstance(document.getElementById('sclCarousel')).to(idx);
+    }
+</script>
+
+</body>
+</html>
