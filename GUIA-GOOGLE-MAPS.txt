@@ -1,0 +1,57 @@
+<!-- GUÍA DE INTEGRACIÓN DE GOOGLE MAPS -->
+
+PASOS PARA PERSONALIZAR EL MAPA DE GOOGLE:
+
+1. VE A https://www.google.com/maps
+2. BUSCA TU UBICACIÓN EXACTA
+3. HAZ CLIC EN COMPARTIR > INSERTAR MAPA
+4. COPIA EL CÓDIGO iframe
+5. REEMPLAZA EL SRC EN contacto.html
+
+CÓDIGO ACTUAL EN contacto.html (línea aproximada 168):
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.5123456789!2d-79.5!3d8.98!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8faca0!3m2!1d8.98!2d-79.5!5e0!3m2!1ses!2spa!4v1234567890123" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+PERSONALIZAR LA INFORMACIÓN:
+
+En la sección "maps-info-box" (línea ~175), modifica:
+
+1. DIRECCIÓN:
+   <p>Panamá<br>Disponemos de servicio a domicilio en toda la región</p>
+   
+   CAMBIAR A TU DIRECCIÓN REAL:
+   <p>Calle Principal 123, Panamá<br>Apto 5, Piso 3</p>
+
+2. TELÉFONO:
+   <a href="tel:+5077589716">+507 758-9716</a>
+
+3. EMAIL:
+   <a href="mailto:info@scltelecomunicaciones.com">info@scltelecomunicaciones.com</a>
+
+4. HORARIO:
+   <p>Lunes a Viernes: 8:00 AM - 6:00 PM<br>Sábado: 9:00 AM - 1:00 PM<br>Emergencias: 24/7 por WhatsApp</p>
+
+CARACTERÍSTICAS DEL MAPA INTEGRADO:
+
+✅ Responsive (se adapta a móvil)
+✅ Con marco elegante y sombra
+✅ Info box con gradiente azul
+✅ Iconos profesionales
+✅ Enlaces funcionales (tel:, mailto:)
+✅ Altura: 500px (desktop), 350px (móvil)
+✅ Bordes redondeados
+
+ESTILOS CSS APLICADOS:
+
+.maps-container {
+    height: 500px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.maps-info-box {
+    background: linear-gradient(135deg, #1f3a93, #0d47a1);
+    color: #ffffff;
+    border-radius: 12px;
+}
+
+¡LISTO! El mapa ya está completamente funcional.
