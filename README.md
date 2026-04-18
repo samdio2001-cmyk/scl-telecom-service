@@ -41,29 +41,8 @@ Este repositorio contiene la página de mantenimiento que se muestra temporalmen
 
 ## 🚀 Uso
 
-1. **Clona el repositorio:**
-   ```bash
-   git clone https://github.com/tu-usuario/tu-repositorio.git
+
    ```
-
-2. **Personaliza el contenido** en `index.html`:
-   - Cambia el mensaje de mantenimiento
-   - Ajusta la fecha estimada de regreso
-   - Agrega tus redes sociales o correo de contacto
-
-3. **Despliega** en tu servidor o plataforma de hosting:
-   - GitHub Pages
-   - Netlify
-   - Vercel
-   - Tu propio servidor
-
-## ⚙️ Personalización
-
-| Variable | Descripción | Ejemplo |
-|----------|-------------|---------|
-| `FECHA_RETORNO` | Fecha estimada de regreso | `2025-06-01T00:00:00` |
-| `MENSAJE` | Texto principal mostrado | `"Volvemos pronto"` |
-| `COLOR_FONDO` | Color principal de la página | `#1a1a2e` |
 
 ## 📅 Estado del Proyecto
 
@@ -83,10 +62,6 @@ Este repositorio contiene la página de mantenimiento que se muestra temporalmen
 ¿Tienes alguna pregunta o urgencia mientras el sitio está en mantenimiento?
 
 
-
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
 
 ---
 
